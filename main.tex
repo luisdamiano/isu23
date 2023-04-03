@@ -987,6 +987,34 @@ B-splines, (v) adaptive splines
   \frametitle{Fully Bayesian estimation}
   \framesubtitle{Parameter priors}
 
+  We generally recommend the following independent weakly informative priors for
+  cases where there is no domain-specific information about the relevance profile.
+  \begin{itemize}
+  \item Asymmetric exponential functions:
+    $\tau \sim \textsc{Beta}(1, 1)$,
+    $\lambda \sim \textsc{N}^{+}(0, 10)$,
+    $\log(\kappa) \sim \textsc{N}(0, 1)$
+  \item Fourier expansion of the weight:
+    $\psi_g\sim\textsc{N}(0, g^{-2}\sigma^2_\psi)$ with
+    $\sigma_\psi\sim\textsc{C}^+(0, 1)$, $\sigma_\psi\sim\textsc{N}^+(0, 1)$,
+    or fixing $\sigma_\psi = 1$
+  \item Basis expansion of the weight general form:
+    $\psi_g \sim \textsc{N}(0, A)$ for some constant
+    $A>0$ representative of the basis function scale, e.g., $A = 10$.
+  \item Scale: $\phi \sim \textsc{InvGamma}(5, 5)$ to avoid
+    values extremely close to zero or large, which may lead to numerical issues
+    due to posterior density flattening
+  \item Standard deviations: $\sigma_f, A^{\frac{1}{2}}\sigma_{\varepsilon}
+    \iid \textsc{N}^{+}(0, 1)$ for some constant $A>0$
+    representative of the signal-to-noise ratio, e.g., $A = 10$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}%
+  \label{frm:bayesian-priors}
+  \frametitle{Fully Bayesian estimation}
+  \framesubtitle{Parameter priors}
+
   \begin{itemize}
   \item We generally recommend the following independent weakly informative
     priors for cases where there is no domain-specific information about
