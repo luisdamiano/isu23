@@ -988,10 +988,6 @@ B-splines, (v) adaptive splines
   \framesubtitle{Parameter priors}
 
   \begin{itemize}
-  \item We denote the parameter vector by $\bm{\theta} =
-    (\bm{\theta}_{d}, \sigma_f^2, \sigma_{\varepsilon}^2)$, where
-    $\bm{\theta}_{d}$ encompasses the unknowns for a specific choice of
-    $d(X_i, X_j)$, e.g., $\bm{\theta}_{d} = (\phi, \lambda, \kappa, \tau)$.
   \item We generally recommend the following independent weakly informative
     priors for cases where there is no domain-specific information about
     the relevance profile:
@@ -1017,6 +1013,10 @@ B-splines, (v) adaptive splines
   \framesubtitle{Parameter estimation}
 
   \begin{itemize}
+  \item We denote the parameter vector by $\bm{\theta} =
+    (\bm{\theta}_{d}, \sigma_f^2, \sigma_{\varepsilon}^2)$, where
+    $\bm{\theta}_{d}$ encompasses the unknowns for a specific choice of
+    $d(X_i, X_j)$, e.g., $\bm{\theta}_{d} = (\phi, \lambda, \kappa, \tau)$.
   \item Let $\mathbf{X}$ be the training input matrix, $\mathbf{m}_y =
     m_y(\mathbf{X})$ the mean vector with %elements
     ${(\mathbf{m}_y)}_{i} = m_y(\mathbf{x}_i)$, and $\mathbf{S}_y =
