@@ -37,6 +37,15 @@
   \hyperlink{#1}{\resizebox{!}{1.5ex}{\beamergotobutton{appendix}}}
 }
 
+%% Some math
+  \newcommand{\calT}{\mathcal{T}}
+  \newcommand{\dt}{\, \mathrm{d}t}
+  \newcommand{\du}{\, \mathrm{d}u}
+  \newcommand{\dv}{\, \mathrm{d}v}
+  \newcommand{\w}{\omega}
+  \newcommand{\dotsq}{{\left[d(t)\right]}^2}
+  \newcommand{\fall}{\,~\forall~\,}
+
 % Setup ------------------------------------------------------------------------
 \graphicspath{{include/}}
 
@@ -893,45 +902,37 @@ B-splines, (v) adaptive splines
   \frametitle{Integral evaluation with a finite representation}
   \framesubtitle{Riemann approximation}
 
-  We want to compute
+  Consider a partition of the index interval $\left\{ t_k: t_0 = 0 \le t_1 <
+    \cdots < t_K \le t_{K+1} = 1 \right\}$.
+  %
   \begin{equation}
-    d_\omega(X_i, X_j) =
-    \phi^{-2}\int_\mathcal{T}\omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t
+    \label{eq:01-adrd-integrand}
+    d_{\omega}
+    =\phi^{-2}\int_0^1 \w(t) \, {(X_i(t) - X_j(t))}^2 \dt
+    =\phi^{-2}\sum_{k = 1}^{K + 1}
+    \underbrace{
+      \int_{t_{k-1}}^{t_k} \w(t) \, {(X_i(t) - X_j(t))}^2
+      \dt}_{C_k}.
   \end{equation}
-
-  Define
-  \begin{align}
-    \Delta t_k
-    &= t_{k} - t_{k - 1} \\
-    D_{i,j,k}
-    &= \omega(t_{k}) {\left(x_{i, k} - x_{j, k}\right)}^2
-  \end{align}
-
-  Trapezoidal approximation
+  %
+  For the trapezoidal approximation, we set
   \begin{equation}
-    d_\omega(X_i, X_j)\approx
-    \phi^{-2}\sum_{k = 2}^{K}
-    \Delta t_k
-    \frac{D_{i, j, k} + D_{i, j, k - 1}}{2}
+    C_k
+    =\left(t_{k} - t_{k - 1}\right) \frac{
+      \omega(t_{k}) {\left(x_{i, k} - x_{j, k}\right)}^2 +
+      \omega(t_{k-1}) {\left(x_{i, {k-1}} - x_{j, {k-1}}\right)}^2
+    }{2}.
   \end{equation}
 
   Since
-  $S_k = e^{-\Delta t_k D_{i, j, k}}$ is positive semidefinite for fixed $k$, so
-  is the product $S = \prod_{k} S_k$.
+  $S_k = e^{\phi^{-2} C_k}$ is positive semidefinite for fixed $k$, so
+  is the product $S = \prod_{k} e^{\phi^{-2} C_k}$.
 \end{frame}
 
 \begin{frame}%
   \label{frm:integral-pcws}
   \frametitle{Integral evaluation with a finite representation}
   \framesubtitle{Closed-form expression for piecewise input and weight functions}
-
-  \newcommand{\calT}{\mathcal{T}}
-  \newcommand{\dt}{\, \mathrm{d}t}
-  \newcommand{\du}{\, \mathrm{d}u}
-  \newcommand{\dv}{\, \mathrm{d}v}
-  \newcommand{\w}{\omega}
-  \newcommand{\dotsq}{{\left[d(t)\right]}^2}
-  \newcommand{\fall}{\,~\forall~\,}
 
   Consider a partition of the index interval $\left\{ t_k: t_0 = 0 \le t_1 <
     \cdots < t_K \le t_{K+1} = 1 \right\}$.
