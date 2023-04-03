@@ -32,6 +32,11 @@
 \AtBeginSection{\frame{\sectionpage}}
 \AtBeginSubsection{\frame{\subsectionpage}}
 
+%%
+\newcommand{\appendixlink}[1]{
+  \hyperlink{#1}{\resizebox{!}{1.5ex}{\beamergotobutton{appendix}}}
+}
+
 % Setup ------------------------------------------------------------------------
 \graphicspath{{include/}}
 
@@ -627,8 +632,8 @@ double exponential, (ii) asymmetric squared exponential, (iii) Fourier, (iv)
 B-splines, (v) adaptive splines
     \end{itemize}
   \item
-    \hyperlink{frm:inference}{\resizebox{!}{1.5ex}{\beamergotobutton{appendix}}}
-    Fully Bayesian inference
+    \appendixlink{frm:bayesian-priors}
+    Fully Bayesian estimation
     \begin{itemize}
     \item Hamiltonian Monte Carlo~\cite[ch. 5]{brooks2011}
     \item NUTS algorithm~\cite{hoffman2014} via
@@ -638,8 +643,8 @@ B-splines, (v) adaptive splines
     \item 500 post-warmup iterations
     \item 1,500 posterior samples
     \end{itemize}
-  \item \hyperlink{frm:validation}{\resizebox{!}{1.5ex}{\beamergotobutton{appendix}}}
-    Numerous out-of-sample validation statistics
+  \item \appendixlink{frm:validation}
+    Multiple out-of-sample validation statistics
   \end{itemize}
 \end{frame}
 
@@ -852,13 +857,46 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 \begin{frame}%
-  \label{frm:riemann}
+  \label{frm:statistics}
+  \frametitle{Automatic Dynamic Relevance Determination}
+  \framesubtitle{Data analysis statistics}
+
+  The weight function drives relevance over the index space by allowing the
+  input profile square difference to contribute locally at varying degrees
+  \begin{align}
+    d_\omega(X_i, X_j)
+    &= \int_{\mathcal{T}}
+      \omega(t)
+      {\left(X_i(t) - X_j(t) \right)}^2\dx{t}
+  \end{align}
+
+  \begin{itemize}
+  \item The maximum relevance location statistic
+    captures the point in the index space where the output responds most
+    strongly and nonlinearly to changes in the functional input
+    \begin{align}
+      \label{eq:01-adrd-maximum-relevance-location}
+      \tau&\coloneqq\argmax_{t\in\mathcal{T}}\omega(t),%\\
+    \end{align}
+  \item The scaled integrated weight statistic is a global measure that
+    summarizes a functional input total relevance by integrating out the index
+    variable
+  \begin{align}
+    \label{eq:01-adrd-scaled-integrated-weight}
+    \Omega&\coloneqq\phi^{-2}\int_\mathcal{T}\omega(t)\dx{t},%\\
+  \end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}%
+  \label{frm:integral-riemann}
   \frametitle{Integral evaluation with a finite representation}
   \framesubtitle{Riemann approximation}
 
   We want to compute
   \begin{equation}
-    I = \int_\mathcal{T}\omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t
+    d_\omega(X_i, X_j) =
+    \int_\mathcal{T}\omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t
   \end{equation}
 
   Define
@@ -871,7 +909,7 @@ B-splines, (v) adaptive splines
 
   Trapezoidal approximation
   \begin{equation}
-    I\approx
+    d_\omega(X_i, X_j)\approx
     \sum_{k = 2}^{K}
     \Delta t_k
     \frac{D_{i, j, k} + D_{i, j, k - 1}}{2}
@@ -880,15 +918,12 @@ B-splines, (v) adaptive splines
   Since
   $S_k = e^{-\Delta t_k D_{i, j, k}}$ is positive semidefinite for fixed $k$, so
   is the product $S = \prod_{k} S_k$.
-
-  \blankfootnote{See~\cite{muehlenstaedt2017} for a B-spline
-    approach}
 \end{frame}
 
 \begin{frame}%
-  \label{frm:piecewise}
+  \label{frm:integral-pcws}
   \frametitle{Integral evaluation with a finite representation}
-  \frametitle{Closed-form expression for piecewise input and weight functions}
+  \framesubtitle{Closed-form expression for piecewise input and weight functions}
 
   \newcommand{\calT}{\mathcal{T}}
   \newcommand{\dt}{\, \mathrm{d}t}
@@ -926,8 +961,8 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 \begin{frame}%
-  \label{frm:inference}
-  \frametitle{Fully Bayesian inference}
+  \label{frm:bayesian-priors}
+  \frametitle{Fully Bayesian estimation}
   \framesubtitle{Parameter priors}
 
   \begin{itemize}
@@ -955,11 +990,12 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 \begin{frame}%
-  \frametitle{Fully Bayesian inference}
+  \label{frm:bayesian-estimation}
+  \frametitle{Fully Bayesian estimation}
   \framesubtitle{Parameter estimation}
 
   \begin{itemize}
-  \item Let $\mathbf{X}$ be training input matrix, $\mathbf{m}_y =
+  \item Let $\mathbf{X}$ be the training input matrix, $\mathbf{m}_y =
     m_y(\mathbf{X})$ the mean vector with %elements
     ${(\mathbf{m}_y)}_{i} = m_y(\mathbf{x}_i)$, and $\mathbf{S}_y =
     s_y(\mathbf{X})$ the covariance matrix with %elements
@@ -1072,7 +1108,7 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 \begin{frame}%
-  \label{frm:pdfi}
+  \label{frm:upscaled-weights}
   \frametitle{Dynamic relevance screening}
   \framesubtitle{Riemann sum equivalence}
 
