@@ -12,4 +12,3 @@ written in the `out` subfolder.
 Ontl, T. A., & Schulte, L. A. (2012). Soil carbon storage. Nature Education
 Knowledge, 3(10).
 https://www.nature.com/scitable/knowledge/library/soil-carbon-storage-84223790/
-
