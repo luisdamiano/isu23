@@ -1076,6 +1076,36 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 \begin{frame}%
+  \label{frm:upscaled-weights}
+  \frametitle{Dynamic relevance screening}
+  \framesubtitle{Riemann sum equivalence}
+
+  \begin{itemize}
+  \item Recall the Riemann sum approximation to the integral
+    \begin{align}
+      \tilde{d}_{\textsc{ADRD}}(X_i, X_j)
+      &\approx
+        \phi^{-2}\sum_{k=1}^{K} \Delta t_k\,\omega(t_k) {(x_{i,k} - x_{j,k})}^2.
+    \end{align}
+  \item If the functional input is completely simplified to a $K-$dimensional
+    vector input, we have
+    \begin{align}
+      \label{eq:01-adrd-ard-norm}
+      d_{\textsc{ARD}}(X_i, X_j)
+      &= \sum_{k = 1}^{K}{\sigma_{x_k}^{-2}(x_{i,k} - x_{j, k})}^2,
+        \sigma_{x_k}^2 > 0.
+    \end{align}
+%    for $\sigma_{x_k}^2 > 0 \ \forall \ k = 1, \dots, K \in \mathbb{N}$.
+  \item We set an equality and obtain
+    \begin{align}
+      \phi^{-2}\omega(t_k)
+      &\approx {\Delta t_k}^{-1} \sigma^{-2}_{x_k}, k = 1,\dots, K
+    \end{align}
+  \item Visualize the upscaled scalar weights learned by an \textsc{ARD} model
+  \end{itemize}
+\end{frame}
+
+\begin{frame}%
   \label{frm:pdfi}
   \frametitle{Dynamic relevance screening}
   \framesubtitle{Permutation Feature Dynamic Importance}
@@ -1104,34 +1134,6 @@ B-splines, (v) adaptive splines
     in the input block associated with the $u$-th index interval, the more
     reliant prediction accuracy is on the corresponding index
     subspace.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}%
-  \label{frm:upscaled-weights}
-  \frametitle{Dynamic relevance screening}
-  \framesubtitle{Riemann sum equivalence}
-
-  \begin{itemize}
-  \item Recall the Riemann sum approximation to the integral
-    \begin{align}
-      \tilde{d}_{\textsc{ADRD}}(X_i, X_j)
-      &\approx \sum_{k=1}^{K} \Delta t_k\,\omega(t_k) {(x_{i,k} - x_{j,k})}^2.
-    \end{align}
-  \item If the functional input is completely simplified to a $K-$dimensional
-    vector input, we have
-    \begin{align}
-      \label{eq:01-adrd-ard-norm}
-      d_{\textsc{ARD}}(X_i, X_j)
-      &= \sum_{k = 1}^{K}{\sigma_{x_k}^{-2}(x_{i,k} - x_{j, k})}^2
-    \end{align}
-    for $\sigma_{x_k}^2 > 0 \ \forall \ k = 1, \dots, K \in \mathbb{N}$.
-  \item We set an equality and obtain
-    \begin{align}
-      \omega(t_k)
-      &\approx {\Delta t_k}^{-1} \sigma^{-2}_{x_k}, k = 1,\dots, K
-    \end{align}
-  \item Visualize the upscaled scalar weights learned by an \textsc{ARD} model
   \end{itemize}
 \end{frame}
 
