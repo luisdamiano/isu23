@@ -1052,24 +1052,27 @@ B-splines, (v) adaptive splines
       RMSE
       & $v_{\textsc{RMSE}}$ =
       & $N^{-\frac{1}{2}} \norm{\mathbf{e}}$ \\
+      nPPLD
+      & $v_{\textsc{nPPLD}}$ =
+      & $
+        \frac{1}{2} \log \lvert \hat{\mathbf{S}} \rvert
+        +D^2
+        +\frac{n}{2} \log 2 \pi
+        $
+      \\
+      MAPE
+      & $v_{\textsc{MAPE}}$ =
+      & $N^{-1} \sum_{n = 1}^{N} |e_n / y_n|$ \\
       $R^2$
       & $v_{\textsc{R2}} $ =
       & $1 -%
         \norm{\mathbf{e}}^{2}
         \norm{\mathbf{y}_* - \bar{y}_*}^{-2}$ \\
-      PPLD
-      & $v_{\textsc{PPLD}}$ =
+      nCRPS
+      & $v_{\textsc{nCRPS}}$ =
       & $
-        -\frac{1}{2} \log \lvert \hat{\mathbf{S}} \rvert
-        -D^2
-        -\frac{n}{2} \log 2 \pi
-        $
-      \\
-      CRPS
-      & $v_{\textsc{CRPS}}$ =
-      & $
-        -\log \lvert \hat{\mathbf{S}} \rvert%
-        -D^2
+        \log \lvert \hat{\mathbf{S}} \rvert%
+        +D^2
         $
     \end{tabular}
   \end{center}
