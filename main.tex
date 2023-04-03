@@ -865,7 +865,7 @@ B-splines, (v) adaptive splines
   input profile square difference to contribute locally at varying degrees
   \begin{align}
     d_\omega(X_i, X_j)
-    &= \int_{\mathcal{T}}
+    &= \phi^{-2}\int_{\mathcal{T}}
       \omega(t)
       {\left(X_i(t) - X_j(t) \right)}^2\dx{t}
   \end{align}
@@ -896,7 +896,7 @@ B-splines, (v) adaptive splines
   We want to compute
   \begin{equation}
     d_\omega(X_i, X_j) =
-    \int_\mathcal{T}\omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t
+    \phi^{-2}\int_\mathcal{T}\omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t
   \end{equation}
 
   Define
@@ -910,7 +910,7 @@ B-splines, (v) adaptive splines
   Trapezoidal approximation
   \begin{equation}
     d_\omega(X_i, X_j)\approx
-    \sum_{k = 2}^{K}
+    \phi^{-2}\sum_{k = 2}^{K}
     \Delta t_k
     \frac{D_{i, j, k} + D_{i, j, k - 1}}{2}
   \end{equation}
