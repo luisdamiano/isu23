@@ -933,31 +933,52 @@ B-splines, (v) adaptive splines
   \newcommand{\dotsq}{{\left[d(t)\right]}^2}
   \newcommand{\fall}{\,~\forall~\,}
 
-  Let $\w(t): \calT \to \mathbb{R}_0^+$ be a weight function and $X_i(t),
-  X_j(t): \calT \to \mathbb{R}$ be two functional input profiles over an index
-  space $\calT$. Define $d_{ij}(t) = X_i(t) - X_j(t)$. We want to find $ I_{ij}
-  \coloneqq \int_{\calT} \w(t) \, {\left[d_{ij}(t)\right]}^2 \dt$. We set
-  $\calT = [0, 1]$ and consider the integral over the index space for any
-  partition $T = \left\{ t_k: t_0 = 0 \le t_1 < \cdots < t_K \le t_{K+1} = 1
-  \right\}$. We drop the subindexes $i$, $j$ for readability.
-  \begin{align}
-  I
-  &=\int_0^1 \w(t) \, \dotsq \dt \label{eq:fnorm-direct} \\
-  &=\sum_{k = 1}^{K + 1}
+  Consider a partition of the index interval $\left\{ t_k: t_0 = 0 \le t_1 <
+    \cdots < t_K \le t_{K+1} = 1 \right\}$.
+  %
+  \begin{equation}
+    \label{eq:01-adrd-integrand}
+    d_{\omega}
+    =\phi^{-2}\int_0^1 \w(t) \, {(X_i(t) - X_j(t))}^2 \dt
+    =\phi^{-2}\sum_{k = 1}^{K + 1}
     \underbrace{
-    \int_{t_{k-1}}^{t_k} \w(t) \, \dotsq
-    \dt}_{C_k} \label{eq:fnorm-direct-pw}
-  \end{align}
-  % https://www.wolframalpha.com/input?i=Integrate%5Bw+*+%28a+%2B+b+*+t%29%5E2%2C+t%5D
-  If $X(t)$ and $\omega(t)$ are piecewise linear and constant over $[t_{k-1},
-  t_{k}]$, respectively, the integrand in $\cref{eq:fnorm-direct-pw}$ becomes
-  $\omega(t) {(a + bt)}^2$ for $a,b\in\mathbb{R}$ and $C_k =
-  {(3b)}^{-1}\omega(t_k)
-  \left[
-    {(a + b t_k)}^3 -
-    {(a + b t_{k-1})}^3
-  \right]
-  $.
+      \int_{t_{k-1}}^{t_k} \w(t) \, {(X_i(t) - X_j(t))}^2
+      \dt}_{C_k}.
+  \end{equation}
+  %
+  Assume now that $\omega(t)$ and $X(t)$ are both piecewise linear over $[t_{k-1},
+  t_{k}]$ so that $\omega(t) = \alpha_0 + \alpha_1 \, t$ and
+  ${X_i(t) - X_j(t)} = \beta_0 + \beta_1 \, t$
+  for some $\alpha_0, \alpha_1, \beta_0, \beta_1\in\mathbb{R}$.
+  Then,
+  \begin{equation}
+    \label{eq:01-adrd-linweight-lininput}
+    % from sympy import *
+    % init_printing()
+    % b0, b1, a0, a1, t, t0, t1 = symbols('b_0 b_1 a_0 a_1 t t_0 t_1')
+    % integrate((a0 + a1 * t) * (b0 + b1 * t)**2, t)
+    % integrate((a0 + a1 * t) * (b0 + b1 * t)**2, (t, t0, t1))
+    \begin{split}
+      C_k=\,
+      &
+      \alpha_0\beta_0^2
+      \,\left({t_{k} - t_{k-1}}\right)
+      +
+      2^{-1}
+      \left(
+        2\alpha_0\beta_0\beta_1 + \alpha_1\beta_0^2
+      \right)
+      \,\left({t^2_{k} - t^2_{k-1}}\right)
+      + \\
+      &3^{-1}
+      \left(\alpha_0\beta_1^2 + 2\alpha_1\beta_0\beta_1\right)
+      \,\left({t^3_{k} - t^3_{k-1}}\right)
+      +
+      4^{-1}
+      \alpha_1\beta_1^2
+      \,\left({t^4_{k} - t^4_{k-1}}\right).
+    \end{split}
+  \end{equation}
 \end{frame}
 
 \begin{frame}%
