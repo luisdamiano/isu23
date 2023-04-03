@@ -1112,15 +1112,26 @@ B-splines, (v) adaptive splines
   \frametitle{Dynamic relevance screening}
   \framesubtitle{Riemann sum equivalence}
 
-  Add Riemann sum equivalence equation
-
   \begin{itemize}
-  \item Pointers on how to use it
-  \item Train an $d_{\textsc{ARD}}(\cdot)$ model with $\theta_k > 0 \
-    \forall \ k = 1, \dots K$ on $\mathbf{X}$
-  \item Define the upscale constants $\Delta t_k = t_{k} - t_{k - 1}$
-  \item Visualize the upscaled scalar weights
-    $\dots$
+  \item Recall the Riemann sum approximation to the integral
+    \begin{align}
+      \tilde{d}_{\textsc{ADRD}}(X_i, X_j)
+      &\approx \sum_{k=1}^{K} \Delta t_k\,\omega(t_k) {(x_{i,k} - x_{j,k})}^2.
+    \end{align}
+  \item If the functional input is completely simplified to a $K-$dimensional
+    vector input, we have
+    \begin{align}
+      \label{eq:01-adrd-ard-norm}
+      d_{\textsc{ARD}}(X_i, X_j)
+      &= \sum_{k = 1}^{K}{\sigma_{x_k}^{-2}(x_{i,k} - x_{j, k})}^2
+    \end{align}
+    for $\sigma_{x_k}^2 > 0 \ \forall \ k = 1, \dots, K \in \mathbb{N}$.
+  \item We set an equality and obtain
+    \begin{align}
+      \omega(t_k)
+      &\approx {\Delta t_k}^{-1} \sigma^{-2}_{x_k}, k = 1,\dots, K
+    \end{align}
+  \item Visualize the upscaled scalar weights learned by an \textsc{ARD} model
   \end{itemize}
 \end{frame}
 
