@@ -1017,31 +1017,6 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 \begin{frame}%
-  \label{frm:bayesian-priors}
-  \frametitle{Fully Bayesian estimation}
-  \framesubtitle{Parameter priors}
-
-  \begin{itemize}
-  \item We generally recommend the following independent weakly informative
-    priors for cases where there is no domain-specific information about
-    the relevance profile:
-    %
-    $\phi \sim \textsc{InvGamma}(\cdot, \cdot)$,
-    $\tau \sim \textsc{Beta}(\cdot, \cdot)$,
-    $\lambda \sim \textsc{N}^{+}(\cdot, \cdot)$,
-    $\log(\kappa) \sim \textsc{N}(\cdot, \cdot)$,
-    $\phi\sim\textsc{N}(\cdot, \cdot)$
-    for the fiGP parameters, and
-    $\sigma_f, \sigma_{\varepsilon} \iid \textsc{N}^{+}(\cdot, \cdot)$
-    for the standard deviation parameters.
-  \item The choice
-    of prior for $\phi$ is motivated by the fact that values extremely
-    close to zero or large may lead to numerical issues due to posterior
-    density flattening.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}%
   \label{frm:bayesian-estimation}
   \frametitle{Fully Bayesian estimation}
   \framesubtitle{Parameter estimation}
