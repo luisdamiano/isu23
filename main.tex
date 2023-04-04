@@ -670,7 +670,7 @@ B-splines, (v) adaptive splines
 
   \begin{figure}
     \centering
-    \includegraphics[height=16em]{inc/wepp_validation_summary_mini.pdf}
+    \includegraphics[height=15em]{inc/wepp_validation_summary_tiny_fsc140.pdf}
   \end{figure}
 
   \blankfootnote{
@@ -696,7 +696,7 @@ B-splines, (v) adaptive splines
 
   \begin{figure}
     \centering
-    \includegraphics[height=15em]{inc/wepp_weight_posterior_mini.pdf}
+    \includegraphics[height=15em]{inc/wepp_weight_posterior_tiny_fsc140.pdf}
   \end{figure}
 
   \blankfootnote{
@@ -716,31 +716,7 @@ B-splines, (v) adaptive splines
 
   \begin{figure}
     \centering
-    \includegraphics[height=15em]{inc/wepp_weight_integral_mini.pdf}
-  \end{figure}
-
-  \blankfootnote{
-    Integrated weight:
-    $
-    \Omega = \int_\mathcal{T}\omega(t)\,\mathrm{d}t
-    $,
-    $
-    p(\Omega | \bm{X}, \bm{y})
-    \approx
-    \{
-    \Omega_m | \bm{X}, \bm{y}, \bm{\theta}_m
-    : m = 1, \dots, M\}
-    $
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{Results}
-  \framesubtitle{Posterior for model interpretation}
-
-  \begin{figure}
-    \centering
-    \includegraphics[height=15em]{inc/wepp_weight_integral_mini.pdf}
+    \includegraphics[height=15em]{inc/wepp_weight_argmax_tiny_fsc140.pdf}
   \end{figure}
 
   \blankfootnote{
@@ -753,6 +729,30 @@ B-splines, (v) adaptive splines
     \approx
     \{
     \tau_m | \bm{X}, \bm{y}, \bm{\theta}_m
+    : m = 1, \dots, M\}
+    $
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results}
+  \framesubtitle{Posterior for model interpretation}
+
+  \begin{figure}
+    \centering
+    \includegraphics[height=15em]{inc/wepp_weight_integral_tiny_fsc140.pdf}
+  \end{figure}
+
+  \blankfootnote{
+    Integrated weight:
+    $
+    \Omega = \int_\mathcal{T}\omega(t)\,\mathrm{d}t
+    $,
+    $
+    p(\Omega | \bm{X}, \bm{y})
+    \approx
+    \{
+    \Omega_m | \bm{X}, \bm{y}, \bm{\theta}_m
     : m = 1, \dots, M\}
     $
   }
