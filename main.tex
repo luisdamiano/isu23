@@ -434,12 +434,11 @@
 
   \begin{figure}
     \centering
-    \includegraphics[height=10em]{inc/mls_weight_profiles}
+    \includegraphics[height=14em]{inc/few_weight_profiles_fsc140.pdf}
   \end{figure}
-
-  include t in the figure axis label, don't flip coordinates
-
+  %\vspace{-1cm}
   \begin{equation}
+    \tiny
     \omega(t)
     =
     \text{exp}\left\{-(t - \tau)\lambda\kappa^s s\right\}
@@ -452,6 +451,7 @@
     $\tau\in[0,1]$,
     $\lambda > 0$,
     $\kappa > 0$ \\
+    %
   }
 \end{frame}
 
@@ -485,12 +485,13 @@
 
   \begin{figure}
     \centering
-    \includegraphics[height=10em]{inc/few_weight_profiles}
+    \includegraphics[height=14em]{inc/bew_fourier_basis_wide_fsc070.pdf}
+    \includegraphics[height=14em]{inc/bew_fourier_weights_fsc070.pdf}
+    %\includegraphics[height=10em]{inc/few_weight_profiles}
   \end{figure}
-
-  Show: bases on the left, weight functions on the right
-
+  %\vspace{-1cm}
   \begin{equation}
+    \tiny
     \log\omega(t)
     \label{eq:few-log}
     =\psi_{c,0} + \sum_{g = 1}^{G} \psi_{c,g}\cos\left(2\pi gt\right)
@@ -513,14 +514,15 @@
 
   \begin{figure}
     \centering
-    \includegraphics[height=10em]{inc/few_weight_profiles}
+    \includegraphics[height=14em]{inc/bew_bsplines_basis_fsc070.pdf}
+    \includegraphics[height=14em]{inc/bew_bsplines_weights_fsc070.pdf}
+    %\includegraphics[height=10em]{inc/few_weight_profiles}
   \end{figure}
-
-  Show: bases on the left, weight functions on the right
-
+  %\vspace{-1cm}
   \begin{equation}
+    \tiny
     \log\omega(t)
-    \label{eq:few-log}
+    \label{eq:bew-log}
     =\psi_{c,0} + \sum_{g = 1}^{G} \psi_{c,g}\cos\left(2\pi gt\right)
       + \sum_{g = 1}^{G} \psi_{s,g}\sin\left(2\pi gt\right)
   \end{equation}
@@ -541,14 +543,15 @@
 
   \begin{figure}
     \centering
-    \includegraphics[height=10em]{inc/few_weight_profiles}
+    \includegraphics[height=14em]{inc/bew_hinge_basis_fsc070.pdf}
+    \includegraphics[height=14em]{inc/bew_hinge_weights_fsc070.pdf}
+    %\includegraphics[height=10em]{inc/few_weight_profiles}
   \end{figure}
-
-  Show: bases on the left, weight functions on the right
-
+  %\vspace{-1cm}
   \begin{equation}
+    \tiny
     \log\omega(t)
-    \label{eq:few-log}
+    \label{eq:hew-log}
     =\psi_{c,0} + \sum_{g = 1}^{G} \psi_{c,g}\cos\left(2\pi gt\right)
       + \sum_{g = 1}^{G} \psi_{s,g}\sin\left(2\pi gt\right)
   \end{equation}
