@@ -692,7 +692,7 @@ B-splines, (v) adaptive splines
 
 \begin{frame}
   \frametitle{Results}
-  \framesubtitle{Posterior for model interpretation}
+  \framesubtitle{How does relevance vary over distance?}
 
   \begin{figure}
     \centering
@@ -700,6 +700,7 @@ B-splines, (v) adaptive splines
   \end{figure}
 
   \blankfootnote{
+    Weight posterior distribution:
     $
     p(\omega(t) | \bm{X}, \bm{y})
     \approx
@@ -712,7 +713,7 @@ B-splines, (v) adaptive splines
 
 \begin{frame}
   \frametitle{Results}
-  \framesubtitle{Posterior for model interpretation}
+  \framesubtitle{At what distance is the input most relevant?}
 
   \begin{figure}
     \centering
@@ -720,7 +721,7 @@ B-splines, (v) adaptive splines
   \end{figure}
 
   \blankfootnote{
-    Most relevant location:
+    Maximum relevance location:
     $
     \tau = \argmax_{t\in\mathcal{T}}\omega(t)
     $,
@@ -736,7 +737,7 @@ B-splines, (v) adaptive splines
 
 \begin{frame}
   \frametitle{Results}
-  \framesubtitle{Posterior for model interpretation}
+  \framesubtitle{Are all inputs equally relevant?}
 
   \begin{figure}
     \centering
@@ -744,9 +745,9 @@ B-splines, (v) adaptive splines
   \end{figure}
 
   \blankfootnote{
-    Integrated weight:
+    Scaled integrated weight:
     $
-    \Omega = \int_\mathcal{T}\omega(t)\,\mathrm{d}t
+    \Omega = \phi^{-2}\int_\mathcal{T}\omega(t)\,\mathrm{d}t
     $,
     $
     p(\Omega | \bm{X}, \bm{y})
