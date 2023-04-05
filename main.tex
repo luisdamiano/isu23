@@ -450,8 +450,7 @@
     $s = \text{sign}(t - \tau)$,
     $\tau\in[0,1]$,
     $\lambda > 0$,
-    $\kappa > 0$ \\
-    %
+    $\kappa > 0$
   }
 \end{frame}
 
@@ -459,24 +458,19 @@
   \frametitle{Weight function specification}
   \framesubtitle{Basis expansion of the weights}
 
-  \begin{equation}
+  A general expression for a basis expansion of the weight function is
+  \begin{align}
     \log\omega(t)
-    =
-    \dots
-  \end{equation}
+    \label{eq:04-pcws-bew-log}
+    &=\sum_{g=1}^{G}\psi_g B_g(t)
+  \end{align}
 
-  \blankfootnote{
-    Space:
-    $\omega(t): \mathcal{T} = [0, 1] \to (0, 1]$,
-    $s = \text{sign}(t - \tau)$,
-    $\tau\in[0,1]$,
-    $\lambda > 0$,
-    $\kappa > 0$ \\
-    \hspace{3.25ex}
-    Identifiability: (i) $\phi = 1$, (ii) $\psi_{c,0} = 0$,
-    (iii) $\max_\mathcal{T}\omega(t) = 1$, or (iv)
-    $\int_\mathcal{T}\omega(t)\dx{t} = 1$
-  }
+  \begin{itemize}
+  \item basis functions $B_g(t)\funcolon[0,1]\to\mathbb{R}$
+  \item basis coefficients $\psi_g\in\mathbb{R}$
+  \item truncation constant $G\in\mathbb{N}$
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}
@@ -487,24 +481,18 @@
     \centering
     \includegraphics[height=14em]{inc/bew_fourier_basis_wide_fsc070.pdf}
     \includegraphics[height=14em]{inc/bew_fourier_weights_fsc070.pdf}
-    %\includegraphics[height=10em]{inc/few_weight_profiles}
   \end{figure}
-  %\vspace{-1cm}
   \begin{equation}
     \tiny
     \log\omega(t)
     \label{eq:few-log}
-    =\psi_{c,0} + \sum_{g = 1}^{G} \psi_{c,g}\cos\left(2\pi gt\right)
-      + \sum_{g = 1}^{G} \psi_{s,g}\sin\left(2\pi gt\right)
+    =\psi_{0} + \sum_{g=1}^{(G-1)/2}\psi_{c,g} \cos(2\pi g t) +
+    \sum_{g=1}^{(G-1)/2}\psi_{s,g} \sin(2\pi g t)
   \end{equation}
 
   \blankfootnote{
     Space:
-    $\psi_{c,g},\psi_{s,g}\in\Reals$, $G\in\mathbb{N}$ \\
-    \hspace{3.25ex}
-    Identifiability: (i) $\phi = 1$, (ii) $\psi_{c,0} = 0$,
-    (iii) $\max_\mathcal{T}\omega(t) = 1$, or (iv)
-    $\int_\mathcal{T}\omega(t)\dx{t} = 1$
+    $\psi_{c,g},\psi_{s,g}\in\Reals$, $G\in2\mathbb{N}+1$
   }
 \end{frame}
 
@@ -516,24 +504,26 @@
     \centering
     \includegraphics[height=14em]{inc/bew_bsplines_basis_fsc070.pdf}
     \includegraphics[height=14em]{inc/bew_bsplines_weights_fsc070.pdf}
-    %\includegraphics[height=10em]{inc/few_weight_profiles}
   \end{figure}
-  %\vspace{-1cm}
   \begin{equation}
     \tiny
     \log\omega(t)
     \label{eq:bew-log}
-    =\psi_{c,0} + \sum_{g = 1}^{G} \psi_{c,g}\cos\left(2\pi gt\right)
-      + \sum_{g = 1}^{G} \psi_{s,g}\sin\left(2\pi gt\right)
+    =
+    \sum_{g = 1}^{G - 2} \psi_{g} B_{g, U}
+    \text{ for }
+    B_{g,1}(t) = I\left\{{t_{g} \le t \le t_{g+1}}\right\},
+    B_{g,u + 1}(t) =
+    C_g B_{g,u}(t)
+    + \left[1 - C_{g+1}\right] B_{g + 1,u}(t),
+    C_g = \frac{t - t_g}{t_{g + u} - t_g}
+    t_g = \frac{g}{G+1},
+    u \le U
   \end{equation}
 
   \blankfootnote{
     Space:
-    $\psi_{c,g},\psi_{s,g}\in\Reals$, $G\in\mathbb{N}$ \\
-    \hspace{3.25ex}
-    Identifiability: (i) $\phi = 1$, (ii) $\psi_{c,0} = 0$,
-    (iii) $\max_\mathcal{T}\omega(t) = 1$, or (iv)
-    $\int_\mathcal{T}\omega(t)\dx{t} = 1$
+    $\psi_{g}\in\Reals$, $G\in\mathbb{N}, U\in\mathbb{N}$
   }
 \end{frame}
 
@@ -545,24 +535,18 @@
     \centering
     \includegraphics[height=14em]{inc/bew_hinge_basis_fsc070.pdf}
     \includegraphics[height=14em]{inc/bew_hinge_weights_fsc070.pdf}
-    %\includegraphics[height=10em]{inc/few_weight_profiles}
   \end{figure}
-  %\vspace{-1cm}
   \begin{equation}
     \tiny
     \log\omega(t)
     \label{eq:hew-log}
-    =\psi_{c,0} + \sum_{g = 1}^{G} \psi_{c,g}\cos\left(2\pi gt\right)
-      + \sum_{g = 1}^{G} \psi_{s,g}\sin\left(2\pi gt\right)
+    =\psi_{0} + \sum_{g=1}^{(G-1)/2} \psi_{1,g}\max(0, t - t_g)
+    + \sum_{g=1}^{(G-1)/2} \psi_{2,g}\max(0, t_g - t),
   \end{equation}
 
   \blankfootnote{
     Space:
-    $\psi_{c,g},\psi_{s,g}\in\Reals$, $G\in\mathbb{N}$ \\
-    \hspace{3.25ex}
-    Identifiability: (i) $\phi = 1$, (ii) $\psi_{c,0} = 0$,
-    (iii) $\max_\mathcal{T}\omega(t) = 1$, or (iv)
-    $\int_\mathcal{T}\omega(t)\dx{t} = 1$
+    $\psi_{1,g},\psi_{2,g}\in\Reals$, $G\in2\mathbb{N}+1$
   }
 \end{frame}
 
