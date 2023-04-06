@@ -346,83 +346,6 @@
 %   \end{itemize}
 % \end{frame}
 
-\begin{frame}
-  \frametitle{Automatic Dynamic Relevance Determination}
-  \framesubtitle{What do I need to use \textsc{ADRD} for my application?}
-
-  \begin{itemize}
-  \item Specify $\omega(t)$
-    \begin{itemize}
-    \item We introduced two parametric forms, a general form for basis
-      expansion, and we explored three basis functions
-    \item We discussed two relevance screening techniques
-      \begin{itemize}
-      \item Permutation-based screening \appendixlink{frm:pdfi}
-      \item Riemann sum equivalence \appendixlink{frm:upscaled-weights}
-      \end{itemize}
-    \item We introduced two data analysis statistics
-      \appendixlink{frm:statistics}
-    \item Subject-matter expertise, prior knowledge about the problem
-    \end{itemize}
-  \item Evaluate integral from a finite representation
-    \begin{itemize}
-    \item Riemann sum as a general approximation
-      \appendixlink{frm:integral-riemann}
-    \item Closed-form expression for piecewise linear input and weights
-      \appendixlink{frm:integral-pcws}
-    \end{itemize}
-  \item Estimate $\omega(t)$
-    \begin{itemize}
-    \item We discussed a set of weakly informative priors for
-      the model parameters
-      \appendixlink{frm:bayesian-priors}
-    \item We carried out fully-Bayesian estimation framework via MCMC
-      \appendixlink{frm:bayesian-estimation}
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Automatic Dynamic Relevance Determination}
-  \framesubtitle{Why do I want to use \textsc{ADRD} for my application?}
-
-  \begingroup
-  \setbeamersize{description width=-\labelsep}
-  \begin{description}
-  % \item[No dimension reduction] \mbox{}\\
-  %   No need to lose information even for large $K$
-  \item[Parsimony] \mbox{}\\
-    $\omega(t)$ can be learned with fewer parameters than \textsc{ARD}
-  \item[Smoothness] \mbox{}\\
-    Smooth relevance function to penalize erratic or noisy \textsc{ARD} patterns
-    \\
-    e.g., $X(t_{k_1})$, $X(t_{k_2})$ and
-    $X(t_{k_3})$ having disparate weights despite $t_{k_1} < t_{k_2} <
-    t_{k_3}$ being close on the index space for the scale of the physical
-    problem
-  \item[Interpretability] \mbox{}\\
-    $\omega(t) | \mathbf{y}$ may provide information about the underlying
-    physical process
-  \end{description}
-  \endgroup
-\end{frame}
-
-\begin{frame}
-  \frametitle{Automatic Dynamic Relevance Determination}
-  \framesubtitle{Can I use \textsc{ADRD} along with $\dots$?}
-
-  In principle, this framework is compatible with
-  \begin{itemize}
-  \item unregistered / unaligned observations
-  \item correlation functions other than the exponential
-  \item full and empirical Bayes, maximum likelihood, cross validation,
-    other training paradigms
-  \item big data approximations, e.g., local approximations
-  \item distributed and GPU-accelerated computing
-  \item smoothing models other than Gaussian Processes, e.g., KNN
-  \end{itemize}
-\end{frame}
-
 % Weight function specification ------------------------------------------------
 \section{Weight function specification %\\ {\small a case study} \\
   %{\tiny worked developed across several papers}
@@ -758,6 +681,83 @@ B-splines, (v) adaptive splines
 \end{frame}
 
 % Discussion -------------------------------------------------------------------
+\begin{frame}
+  \frametitle{Automatic Dynamic Relevance Determination}
+  \framesubtitle{Why do I want to use \textsc{ADRD} for my application?}
+
+  \begingroup
+  \setbeamersize{description width=-\labelsep}
+  \begin{description}
+  % \item[No dimension reduction] \mbox{}\\
+  %   No need to lose information even for large $K$
+  \item[Parsimony] \mbox{}\\
+    $\omega(t)$ can be learned with fewer parameters than \textsc{ARD}
+  \item[Smoothness] \mbox{}\\
+    Smooth relevance function to penalize erratic or noisy \textsc{ARD} patterns
+    \\
+    e.g., $X(t_{k_1})$, $X(t_{k_2})$ and
+    $X(t_{k_3})$ having disparate weights despite $t_{k_1} < t_{k_2} <
+    t_{k_3}$ being close on the index space for the scale of the physical
+    problem
+  \item[Interpretability] \mbox{}\\
+    $\omega(t) | \mathbf{y}$ may provide information about the underlying
+    physical process
+  \end{description}
+  \endgroup
+\end{frame}
+
+\begin{frame}
+  \frametitle{Automatic Dynamic Relevance Determination}
+  \framesubtitle{What do I need to use \textsc{ADRD} for my application?}
+
+  \begin{itemize}
+  \item Specify $\omega(t)$
+    \begin{itemize}
+    \item We introduced two parametric forms, a general form for basis
+      expansion, and we explored three basis functions
+    \item We discussed two relevance screening techniques
+      \begin{itemize}
+      \item Permutation-based screening \appendixlink{frm:pdfi}
+      \item Riemann sum equivalence \appendixlink{frm:upscaled-weights}
+      \end{itemize}
+    \item We introduced two data analysis statistics
+      \appendixlink{frm:statistics}
+    \item Subject-matter expertise, prior knowledge about the problem
+    \end{itemize}
+  \item Evaluate integral from a finite representation
+    \begin{itemize}
+    \item Riemann sum as a general approximation
+      \appendixlink{frm:integral-riemann}
+    \item Closed-form expression for piecewise linear input and weights
+      \appendixlink{frm:integral-pcws}
+    \end{itemize}
+  \item Estimate $\omega(t)$
+    \begin{itemize}
+    \item We discussed a set of weakly informative priors for
+      the model parameters
+      \appendixlink{frm:bayesian-priors}
+    \item We carried out fully-Bayesian estimation framework via MCMC
+      \appendixlink{frm:bayesian-estimation}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}<all:0>
+  \frametitle{Automatic Dynamic Relevance Determination}
+  \framesubtitle{Can I use \textsc{ADRD} along with $\dots$?}
+
+  In principle, this framework is compatible with
+  \begin{itemize}
+  \item unregistered / unaligned observations
+  \item correlation functions other than the exponential
+  \item full and empirical Bayes, maximum likelihood, cross validation,
+    other training paradigms
+  \item big data approximations, e.g., local approximations
+  \item distributed and GPU-accelerated computing
+  \item smoothing models other than Gaussian Processes, e.g., KNN
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Discussion}
   \framesubtitle{Our contribution and open questions}
