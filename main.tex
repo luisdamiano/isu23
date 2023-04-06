@@ -288,7 +288,7 @@
       \only<2->{
     \\
     d_f(X_i, X_j)
-    &= \int_{[0, 1]}
+    &= \int_0^1
       \omega(t)
       {\left(X_i(t) - X_j(t) \right)}^2 dt
     \\
@@ -534,12 +534,12 @@
 
   $\mathrm{Cor}(y_i, y_j) =
   \underbrace{\exp\{
-    \int_\mathcal{T}
+    \int_0^1
     \omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t\}
   }_{\mathrm{ADRD}}
   \times
   \underbrace{
-    \vphantom{\int_\mathcal{T}}
+    \vphantom{\int_0^1}
       \exp\{\theta_1 {(x_{1i} - x_{1j})}^2\}
   \times
   \exp\{\theta_2 {(x_{2i} - x_{2j})}^2\}
@@ -635,7 +635,7 @@ B-splines, (v) adaptive splines
   \blankfootnote{
     Maximum relevance location:
     $
-    \tau = \argmax_{t\in\mathcal{T}}\omega(t)
+    \tau = \argmax_{t\in{[0, 1]}}\omega(t)
     $,
     $
     p(\tau | \bm{X}, \bm{y})
@@ -659,7 +659,7 @@ B-splines, (v) adaptive splines
   \blankfootnote{
     Scaled integrated weight:
     $
-    \Omega = \phi^{-2}\int_\mathcal{T}\omega(t)\,\mathrm{d}t
+    \Omega = \phi^{-2}\int_0^1\omega(t)\,\mathrm{d}t
     $,
     $
     p(\Omega | \bm{X}, \bm{y})
