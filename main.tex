@@ -477,18 +477,84 @@
   }
 \end{frame}
 
+% \begin{frame}
+%   \frametitle{Weight function specification}
+%   \framesubtitle{Generative model}
+
+%   List with generative model
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Weight function specification}
+%   \framesubtitle{Simulation study}
+
+%   Recovering the weight function from a well specified model
+% \end{frame}
+
 \begin{frame}
   \frametitle{Weight function specification}
-  \framesubtitle{Generative model}
+  \framesubtitle{Simulation study}
+  \begin{figure}
+    \centering
+    \includegraphics[height=14em]{inc/sim_truth_ase_fsc070.pdf}
+    \includegraphics[height=14em]{inc/sim_posterior_ase_fsc070.pdf}
+  \end{figure}
+  \begin{equation}
+    \tiny
+    \omega(t)
+    =\text{exp}\left(-5 {(t - .5)}^2 10^s\right), s = \text{sign}(t - .5)
+  \end{equation}
 
-  List with generative model
+  \blankfootnote{
+    $n = 1000$, $\phi = 1$, $\sigma^2_f = 1$,
+    and $\sigma^2_\varepsilon = 30^{-1}$,
+    $s_x(t_1, t_2) = \exp\left\{-.1^{-2} {(t_1 - t_2)}^2 \right\}$.
+    Right: asymmetric squared exponential with $\tau,\lambda,\kappa$ free.
+  }
 \end{frame}
 
 \begin{frame}
   \frametitle{Weight function specification}
   \framesubtitle{Simulation study}
+  \begin{figure}
+    \centering
+    \includegraphics[height=14em]{inc/sim_truth_bim_fsc070.pdf}
+    \includegraphics[height=14em]{inc/sim_posterior_bim_fsc070.pdf}
+  \end{figure}
+  \begin{equation}
+    \tiny
+    \omega(t)
+    =.66\,\text{exp}\left(-200 {(t - .33)}^2\right) +
+    \text{exp}\left(-200 {(t - .66)}^2\right)
+  \end{equation}
 
-  Recovering the weight function from a well specified model
+  \blankfootnote{
+    $n = 1000$, $\phi = 1$, $\sigma^2_f = 1$,
+    and $\sigma^2_\varepsilon = 30^{-1}$,
+    $s_x(t_1, t_2) = \exp\left\{-.1^{-2} {(t_1 - t_2)}^2 \right\}$.
+    Right: Fourier expansion with $\psi_{g}, G = 5$ free.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Weight function specification}
+  \framesubtitle{Simulation study}
+  \begin{figure}
+    \centering
+    \includegraphics[height=14em]{inc/sim_truth_U1a_fsc070.pdf}
+    \includegraphics[height=14em]{inc/sim_posterior_U1a_fsc070.pdf}
+  \end{figure}
+  \begin{equation}
+    \tiny
+    \omega(t)
+    ={(2 t - 1)}^4
+  \end{equation}
+  \blankfootnote{
+    $n = 1000$, $\phi = 1$, $\sigma^2_f = 1$,
+    and $\sigma^2_\varepsilon = 30^{-1}$,
+    $s_x(t_1, t_2) = \exp\left\{-.1^{-2} {(t_1 - t_2)}^2 \right\}$.
+    Right: Fourier expansion with $\psi_{g}, G = 5$ free.
+  }
 \end{frame}
 
 % Daily Erosion Project --------------------------------------------------------
