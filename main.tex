@@ -506,9 +506,9 @@
   \end{equation}
 
   \blankfootnote{
-    $n = 1000$, $\phi = 1$, $\sigma^2_f = 1$,
+    $n = 100$, $\phi = 1$, $\sigma^2_f = 1$,
     and $\sigma^2_\varepsilon = 30^{-1}$,
-    $s_x(t_1, t_2) = \exp\left\{-.1^{-2} {(t_1 - t_2)}^2 \right\}$.
+    $s_x(t_{k}, t_{k'}) = \exp\left\{-.1^{-2} {(t_{k} - t_{k'})}^2 \right\}$.
     Right: asymmetric squared exponential with $\tau,\lambda,\kappa$ free.
   }
 \end{frame}
@@ -529,9 +529,9 @@
   \end{equation}
 
   \blankfootnote{
-    $n = 1000$, $\phi = 1$, $\sigma^2_f = 1$,
+    $n = 100$, $\phi = 1$, $\sigma^2_f = 1$,
     and $\sigma^2_\varepsilon = 30^{-1}$,
-    $s_x(t_1, t_2) = \exp\left\{-.1^{-2} {(t_1 - t_2)}^2 \right\}$.
+    $s_x(t_{k}, t_{k'}) = \exp\left\{-.1^{-2} {(t_{k} - t_{k'})}^2 \right\}$.
     Right: Fourier expansion with $\psi_{g}, G = 5$ free.
   }
 \end{frame}
@@ -550,16 +550,16 @@
     ={(2 t - 1)}^4
   \end{equation}
   \blankfootnote{
-    $n = 1000$, $\phi = 1$, $\sigma^2_f = 1$,
+    $n = 100$, $\phi = 1$, $\sigma^2_f = 1$,
     and $\sigma^2_\varepsilon = 30^{-1}$,
-    $s_x(t_1, t_2) = \exp\left\{-.1^{-2} {(t_1 - t_2)}^2 \right\}$.
+    $s_x(t_{k}, t_{k'}) = \exp\left\{-.1^{-2} {(t_{k} - t_{k'})}^2 \right\}$.
     Right: Fourier expansion with $\psi_{g}, G = 5$ free.
   }
 \end{frame}
 
 % Daily Erosion Project --------------------------------------------------------
 \section{Daily Erosion Project \\ {\small a case study} \\
-{\tiny upcoming manuscript}}
+{\tiny in preparation}}
 
 \begin{frame}
   \frametitle{Data}
@@ -1178,6 +1178,38 @@ B-splines, (v) adaptive splines
         $
     \end{tabular}
   \end{center}
+\end{frame}
+
+\begin{frame}%
+  \label{frm:generative}
+  \frametitle{Generative model}
+
+  \begin{itemize}
+  \item Specify a weight function $\omega(t)$ and the standard deviation
+    parameters $\sigma_{f}^2,\sigma_{\varepsilon}^2 >0$
+  \item Draw $N\in\mathbb{N}$ input profiles evaluated at a finite set of
+    $K\in\mathbb{N}$ locations $t_1, \dots, t_K$ from
+    $\mathbf{x}\sim\textsc{MVN}(\cdot, \mathbf{S}_x)$, where
+    $\mathbf{S}_x\in{\mathbb{R}_+}^{K\times K}$ is the input finite profile
+    covariance matrix with elements ${(\mathbf{S}_x)}_{k,k'} = S_x(t_k, t_{k'})$
+    for $k,k' = 1, \dots, K$
+  \item Generate $N$ input profiles over a fine grid with $\tilde{K}$ to
+    evaluate $d_{\omega}(X_i, X_j)$, and retain a coarse
+    representation with $K\ll\tilde{K}$ evaluations for the statistical model
+  \item Draw $N\in\mathbb{N}$ output scalars from
+    $\mathbf{y}\sim\textsc{MVN}(\cdot, \mathbf{S}_y)$, where
+    $\mathbf{S}_y\in{\mathbb{R}_+}^{N\times N}$ is the output covariance matrix
+    with elements ${(\mathbf{S}_y)}_{i,j} =
+      \sigma_{f}^2 \text{exp}\left\{
+      -0.5 \phi^{-2} \ d_f(X_i, X_j)
+      \right\}
+    + I_{ij}
+    \sigma_{\varepsilon}^2$, $i,j = 1, \dots, N$ are observation indexes,
+    % with elements ${(\mathbf{S}_y)}_{i,j} = s_f(X_i(t), X_j(t)) + I_{i, j}
+    %\sigma_{\varepsilon}^2$, $i,j = 1, \dots, N$ are observation indexes,
+    and $I_{ij}$ is an indicator function for $i = j$
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}%
