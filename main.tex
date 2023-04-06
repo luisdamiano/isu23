@@ -692,18 +692,31 @@ B-splines, (v) adaptive splines
   \begin{description}
   % \item[No dimension reduction] \mbox{}\\
   %   No need to lose information even for large $K$
-  \item[Parsimony] \mbox{}\\
-    $\omega(t)$ can be learned with fewer parameters than \textsc{ARD}
-  \item[Smoothness] \mbox{}\\
-    Smooth relevance function to penalize erratic or noisy \textsc{ARD} patterns
-    \\
-    e.g., $X(t_{k_1})$, $X(t_{k_2})$ and
-    $X(t_{k_3})$ having disparate weights despite $t_{k_1} < t_{k_2} <
-    t_{k_3}$ being close on the index space for the scale of the physical
-    problem
-  \item[Interpretability] \mbox{}\\
-    $\omega(t) | \mathbf{y}$ may provide information about the underlying
-    physical process
+    \only<1>{
+    \item[Parsimony] \mbox{}\\
+      $\omega(t)$ can be learned with fewer parameters than \textsc{ARD}
+      \\
+      e.g.,
+      ${\left\{\psi_g\right\}}_{g=1}^{G}$ vs.
+      ${\left\{\sigma^{-2}_{k}\right\}}_{k=1}^{K}$ for $G\ll K$
+    }
+    \only<2>{
+    \item[Smoothness] \mbox{}\\
+      Penalize erratic or noisy \textsc{ARD} patterns,
+      e.g., $X(t_{1})$, $X(t_{2})$ and
+      $X(t_{3})$ having disparate weights despite $t_{1} < t_{2} <
+      t_{3}$ being close on the index space for the scale of the physical
+      problem
+      \begin{figure}
+        \centering
+        \includegraphics[height=12em]{inc/wepp_weight_samples2_tiny_fsc120.pdf}
+      \end{figure}
+    }
+    \only<3>{
+    \item[Interpretability] \mbox{}\\
+      $\omega(t) | \mathbf{y}$ may provide information about the underlying
+      physical process
+    }
   \end{description}
   \endgroup
 \end{frame}
