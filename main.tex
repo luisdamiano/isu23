@@ -249,23 +249,25 @@
     &=\Reals \\
     X(t)\in\mathcal{X}
     &=\left\{X\colonfun[0, 1]\to\mathbb{R}, \int X(t)^2\mathrm{d}{t}<\infty\right\}
-    % \\
-    % t\in[0, 1]
-    % &=[0, 1]
-      \only<2->{
-      \\
+    \\
+    \uncover<2->{
     f
     &\hphantom{\colonfun\colonfun}
       \colonfun
       \hphantom{\colonfun\colonfun}\mathcal{X}\to\mathcal{Y} \\
+    }
+    \uncover<3->{
     y_i
     &= f(X_i),
       i = 1, \dots, N\in\mathbb{N}
     \\
+    }
+    \uncover<4->{
     f
-    &\sim\mathcal{GP}(\cdot, \cdot)
-      }
-  \end{align}
+    &\sim\mathcal{GP}(\cdot, \cdot) \\
+    }
+    \notag
+\end{align}
 
   \blankfootnote{We assume that $t$ belongs in the unit interval w.l.o.g.}
 \end{frame}
@@ -278,25 +280,22 @@
     \mathbf{y}
     &\sim \mathcal{N}\left(\cdot, \sigma_{f}^{2} \ \mathbf{R}_f
       + \sigma_{\varepsilon}^{2}\mathbf{I}\right) \\
-       % \sim \mathcal{N}\left(\mathbf{m}_f, \sigma_{f}^{2} \ \mathbf{R}_f
-       % + \sigma_{\varepsilon}^{2}\mathbf{I}\right) \\
-       % (\mathbf{m}_f)_i
-       % &= m_f(X_i) \\
     {\left(\mathbf{R}_f\right)}_{ij}
     &=
       \text{exp}\left\{
       -0.5 \phi^{-2} \ d_f(X_i, X_j)
       \right\}
-      \only<2->{
     \\
+    \uncover<2->{
     d_f(X_i, X_j)
     &= \int_0^1
       \omega(t)
       {\left(X_i(t) - X_j(t) \right)}^2 dt
     \\
     \omega(t)
-    &: [0, 1]\to\mathbb{R}^+
-      }
+    &: [0, 1]\to\mathbb{R}^+ \\
+    \notag
+    }
   \end{align}
 
   \blankfootnote{
