@@ -615,16 +615,16 @@
   \vfill
 
   $\mathrm{Cor}(y_i, y_j) =
-  \underbrace{\exp\{
+  \underbrace{\exp\{-
     \int_0^1
     \omega(t){(X_i(t) - X_j(t))}^2\,\mathrm{d}t\}
   }_{\mathrm{ADRD}}
   \times
   \underbrace{
     \vphantom{\int_0^1}
-      \exp\{\theta_1 {(x_{1i} - x_{1j})}^2\}
+      \exp\{-\theta_1 {(x_{1i} - x_{1j})}^2\}
   \times
-  \exp\{\theta_2 {(x_{2i} - x_{2j})}^2\}
+  \exp\{-\theta_2 {(x_{2i} - x_{2j})}^2\}
   }_{\mathrm{ARD}}$
 \end{frame}
 
