@@ -1,0 +1,103 @@
+* Automatic relevance determination for Gaussian process regression with functional inputs
+
+In the context of Gaussian process regression, it is common to treat functional
+inputs as vectors. The parameter space becomes prohibitively complex as the
+functional input resolution increases, which hinders automatic relevance
+determination. Generalizing work for time-varying inputs, we introduce the
+automatic dynamic relevance determination (ADRD) framework to enforce smoothness
+on the predictive relevance profile over the index space with only a limited
+number of parameters. Fully Bayesian estimation is carried out to identify
+relevant regions of the functional input space and validation is performed to
+benchmark against traditional vector-input model specifications. In a case study
+for surrogate modeling, we find that ADRD outperforms models with input
+dimension reduction via functional principal component analysis. Furthermore,
+the predictive power is comparable to high-dimensional models, in terms of both
+mean prediction and uncertainty, with 10 times fewer tuning parameters. Last,
+ADRD rules out erratic patterns associated with vector-input models.
+
+* Invites
+  - Lab
+  - Grad students, especially those in 1, 2 year who haven't settled for a
+    research topic
+
+* Exam
+
+** Prep
+   - How to pronounce MAPE?
+   - Phase and amplitude
+   - Epistemic uncertainty
+   - CRPS
+
+** Contributions
+   - List by chapter
+
+** Definition of relevance
+   - scale, importance, nonlinearity
+
+** Gaussian process
+   - Density before and after integrating out f
+
+** Hilbert space
+   - Definition
+   - Analogy with Euclidean space
+   - Difference between metric and norm
+
+** Muehlenstaedt approach
+   - Similar: they compute the L^2 norm
+   - Different: they place weights on the basis functions
+
+** Numerical study
+
+** MCMC
+   - Argument for one long chain
+   - Geweke
+   - Other statistics
+
+** HMC divergent transitions
+   - https://mc-stan.org/docs/reference-manual/divergent-transitions.html
+
+* Exam notes
+  Notes taken by Jarad during the exam.
+
+  Slide 4
+  - HUC 12 is a particular size
+  Slide 7
+  - You haven’t introduced a GP yet
+  - basis representation may have some meaning
+  Slide 9
+  - loss of generality (not generalization)
+  - use X_i(t) or do you really want a discretized version of X(t)
+  - do you think a scientist can really tell you that the function should be
+    twice differentiable? More likely?
+  Slide 10
+  - why a nugget if the function is deterministic? Answered.
+  - why \phi^{-2}? Use \theta!! Why not use \omega earlier?
+  Slide 13
+  - how about use absolute value rather than s for ADE?
+  Slide 15
+  - circular functional inputs
+  Slide 16
+  - cubic polynomials?
+  Slide 23
+  - use \left\{ \right\]
+  - add negative signs
+  Slide 25
+  - Hinge (G=7) best for Negative PPLD?
+  Slide 26
+  - Second mode is an artefact?
+  Normalizing the slope/elevation?
+  - integrate to 1?
+  - same total drop
+  Suggestions for thesis
+  Max
+  - Compare RMSE vs sample size OR number of input evaluations
+  - Output is a function
+  Petruta
+  - How do we incorporate spatial information?
+  Luis
+  - Definitely not beholden to convention
+    - 10-fold cross-validation
+    - simulation study
+  Future work
+  - Include spatial information in emulator for DEP
+  - ARD with AR1 prior on log weights
